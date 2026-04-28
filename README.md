@@ -33,6 +33,34 @@ pnpm dev
 | ---------------- | ----------------------------------------------------- |
 | `VITE_STORE_UID` | Your store UID from the Colossal dashboard (required) |
 
+## Agent Skills
+
+This template is designed to be built and redesigned with the help of the [Colossal Agent Skills](https://github.com/colossalhq/agent-skills). Install them into the project so coding agents (Claude Code, Cursor, Codex, etc.) get the SDK, theming, and design-library context they need:
+
+```bash
+npx skills add colossalhq/agent-skills \
+  --skill colossal-builder \
+  --skill colossal-template-builder \
+  --skill colossal-design-library \
+  --skill colossal-store-design \
+  -y
+```
+
+Or install everything at once:
+
+```bash
+npx skills add colossalhq/agent-skills --all
+```
+
+What each skill does:
+
+- `colossal-template-builder` — entry point for building/redesigning on this Vite template (theming, animations, image generation, redesign strategy)
+- `colossal-builder` — generic Colossal Storefront SDK guide (hooks, providers, data constraints)
+- `colossal-design-library` — catalog of design references (`design.json` + `theme.css` + `preview.html`)
+- `colossal-store-design` — create new design references from store screenshots, or apply existing ones to a project
+
+See the [agent-skills README](https://github.com/colossalhq/agent-skills) for global install, updates, and per-agent targeting.
+
 ## Production Build
 
 ```bash
