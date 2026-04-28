@@ -1,8 +1,8 @@
 # Colossal Storefront (Vite Template)
 
 <p align="center">
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcolossalsound%2Fcolossal-storefront-starter-vite&env=VITE_STORE_UID&envDescription=Your%20store%20UID%20from%20the%20Colossal%20dashboard&envLink=https%3A%2F%2Fcolossal.sh"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
-  <a href="https://stackblitz.com/github/colossalsound/colossal-storefront-starter-vite"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz"></a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcolossalhq%2Fcolossal-storefront-starter-vite&env=VITE_STORE_UID&envDescription=Your%20store%20UID%20from%20the%20Colossal%20dashboard&envLink=https%3A%2F%2Fcolossal.sh"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
+  <a href="https://stackblitz.com/github/colossalhq/colossal-storefront-starter-vite"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz"></a>
 </p>
 
 A storefront template for [colossal.sh](https://colossal.sh) commerce backend. Built with Vite, React 19, TanStack Router, and Tailwind CSS 4.
@@ -29,8 +29,8 @@ pnpm dev
 
 ## Environment Variables
 
-| Variable          | Description                                                                |
-| ----------------- | -------------------------------------------------------------------------- |
+| Variable         | Description                                           |
+| ---------------- | ----------------------------------------------------- |
 | `VITE_STORE_UID` | Your store UID from the Colossal dashboard (required) |
 
 ## Production Build
