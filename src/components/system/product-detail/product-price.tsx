@@ -11,7 +11,8 @@ export function ProductPrice() {
 
 	if (!product) return null;
 
-	const formattedPrice = getFormattedProductPrice(product);
+	const currency = product.defaultVariant?.prices?.[0]?.currency ?? "USD";
+	const formattedPrice = getFormattedProductPrice(product, currency);
 	if (!formattedPrice) return null;
 
 	return (
