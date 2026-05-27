@@ -97,8 +97,8 @@ importers:
         specifier: 2.4.12
         version: 2.4.12
       '@colossal-sh/visual-editor':
-        specifier: ^0.2.4
-        version: 0.2.4(react@19.2.5)(vite@7.3.2(@types/node@25.6.0)(jiti@2.7.0)(lightningcss@1.32.0))
+        specifier: ^0.3.0
+        version: 0.3.0(react@19.2.5)(vite@7.3.2(@types/node@25.6.0)(jiti@2.7.0)(lightningcss@1.32.0))
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.2.4)
@@ -391,8 +391,8 @@ packages:
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
 
-  '@colossal-sh/visual-editor@0.2.4':
-    resolution: {integrity: sha512-GVjQwone2BVPYVbNIlXqiaYlgKKoTzBrer2eQNEYvZokLpN99DtUBnm0W+k6n1mP3qeoXGphC1EDsQwbaphpyw==}
+  '@colossal-sh/visual-editor@0.3.0':
+    resolution: {integrity: sha512-hDcp8qOOnlI0QI4dFpMORQMJ12RCRlHoe8TGRjRbdF586bHkdy4OK5Y73w63liHZB07/CqccqewvFMk4TyQhrw==}
     peerDependencies:
       react: '>=18'
       vite: '>=5'
@@ -3534,7 +3534,7 @@ snapshots:
     transitivePeerDependencies:
       - graphql
 
-  '@colossal-sh/visual-editor@0.2.4(react@19.2.5)(vite@7.3.2(@types/node@25.6.0)(jiti@2.7.0)(lightningcss@1.32.0))':
+  '@colossal-sh/visual-editor@0.3.0(react@19.2.5)(vite@7.3.2(@types/node@25.6.0)(jiti@2.7.0)(lightningcss@1.32.0))':
     dependencies:
       react: 19.2.5
       vite: 7.3.2(@types/node@25.6.0)(jiti@2.7.0)(lightningcss@1.32.0)
