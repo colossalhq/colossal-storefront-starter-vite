@@ -1,6 +1,7 @@
 import type { SimpleProduct } from "@colossal-sh/storefront-sdk";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { formatSimpleProductPrice } from "#/lib/utils";
 
 export interface FeaturedProductsProps {
 	/** Products to display */
@@ -78,7 +79,7 @@ export function FeaturedProducts({
 									data-editable-id={product.uid}
 									data-editable-field="price"
 								>
-									{product.formattedPrice}
+									{formatSimpleProductPrice(product)}
 								</p>
 							</div>
 							<div className="mt-4 flex items-center gap-1.5 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground transition-colors group-hover:text-foreground">

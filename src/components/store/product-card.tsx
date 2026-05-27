@@ -1,8 +1,9 @@
+import type { SimpleProduct } from "@colossal-sh/storefront-sdk";
 import { Link } from "@tanstack/react-router";
 import { ChevronLeft, ChevronRight, Plus, ShoppingBag } from "lucide-react";
 import { useCallback, useState } from "react";
 import { Button } from "#/components/ui/button";
-import type { SimpleProduct } from "@colossal-sh/storefront-sdk";
+import { formatSimpleProductPrice } from "#/lib/utils";
 
 export type CardHoverEffect = "lift" | "shadow";
 export type CardCartButton = "outline" | "ghost" | "icon-only" | "overlay";
@@ -227,7 +228,7 @@ export function ProductCard({
 							data-editable-id={product.uid}
 							data-editable-field="price"
 						>
-							{product.formattedPrice}
+							{formatSimpleProductPrice(product)}
 						</p>
 					)}
 
@@ -239,7 +240,7 @@ export function ProductCard({
 								data-editable-id={product.uid}
 								data-editable-field="price"
 							>
-								{product.formattedPrice}
+								{formatSimpleProductPrice(product)}
 							</p>
 
 							{cartButton === "outline" && (

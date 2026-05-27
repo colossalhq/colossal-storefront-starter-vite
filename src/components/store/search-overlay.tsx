@@ -4,6 +4,7 @@ import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "#/components/ui/button";
 import { STORE_UID } from "#/lib/constants";
+import { formatSimpleProductPrice } from "#/lib/utils";
 
 interface SearchOverlayProps {
 	open: boolean;
@@ -140,7 +141,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
 											)}
 										</div>
 										<span className="shrink-0 text-sm font-medium">
-											{product.formattedPrice}
+											{formatSimpleProductPrice(product)}
 										</span>
 									</Link>
 								))}

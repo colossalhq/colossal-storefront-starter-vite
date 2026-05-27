@@ -1,4 +1,5 @@
 import {
+	formatPrice,
 	useCartContext,
 	useCreateCheckoutSession,
 } from "@colossal-sh/storefront-sdk";
@@ -15,24 +16,20 @@ import {
 	DrawerTitle,
 } from "#/components/ui/drawer";
 
-interface CartDrawerProps {
-	open: boolean;
-	onOpenChange: (open: boolean) => void;
-	onUpdateQuantity?: (lineItemUid: string, quantity: number) => void;
-	onRemoveItem?: (lineItemUid: string) => void;
-	cartId?: string | null;
-}
-
-export function CartDrawer(_props: CartDrawerProps) {
-	const { items, cartId, isOpen, closeCart, updateQuantity, removeItem } =
-		useCartContext();
+export function CartDrawer() {
+	const {
+		items,
+		cartId,
+		isOpen,
+		closeCart,
+		updateQuantity,
+		removeItem,
+		subtotal,
+		currency,
+	} = useCartContext();
 	const createSession = useCreateCheckoutSession();
 	const [checkoutLoading, setCheckoutLoading] = useState(false);
 	const itemCount = items.length;
-	const subtotal = items.reduce(
-		(sum, item) => sum + item.price * item.quantity,
-		0,
-	);
 
 	return (
 		<Drawer
@@ -126,7 +123,9 @@ export function CartDrawer(_props: CartDrawerProps) {
 												<Plus className="h-3 w-3" />
 											</Button>
 										</div>
-										<p className="text-sm font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+										<p className="text-sm font-medium">
+											{formatPrice(item.totalAmount, item.currency)}
+										</p>
 									</div>
 								</div>
 							</div>
@@ -138,7 +137,9 @@ export function CartDrawer(_props: CartDrawerProps) {
 					<DrawerFooter className="border-t pt-4">
 						<div className="flex items-center justify-between py-1">
 							<span className="font-medium">Subtotal</span>
-							<span className="font-semibold">${subtotal.toFixed(2)}</span>
+							<span className="font-semibold">
+								{currency ? formatPrice(subtotal, currency) : "—"}
+							</span>
 						</div>
 						<Button
 							className="w-full cursor-pointer"
