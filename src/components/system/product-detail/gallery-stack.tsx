@@ -1,3 +1,5 @@
+import { GalleryImage } from "./gallery-image";
+
 interface Props {
 	images: string[];
 	productName: string;
@@ -14,10 +16,12 @@ export function GalleryStack({ images, productName, onImageClick }: Props) {
 					onClick={() => onImageClick(i)}
 					className="group/img relative overflow-hidden rounded-lg bg-muted"
 				>
-					<img
+					<GalleryImage
 						src={src}
 						alt={`${productName} - ${i + 1}`}
+						fallbackChar={productName.charAt(0)}
 						className="w-full object-cover transition-transform duration-500 group-hover/img:scale-[1.03]"
+						fallbackClassName="aspect-square"
 					/>
 					<div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover/img:bg-black/10" />
 				</button>

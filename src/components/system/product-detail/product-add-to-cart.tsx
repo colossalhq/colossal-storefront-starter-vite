@@ -1,13 +1,17 @@
-import { useCartContext, useStoreProduct } from "@colossal-sh/storefront-sdk";
+import {
+	useCartContext,
+	useStoreProductByHandle,
+} from "@colossal-sh/storefront-sdk";
 import { useParams } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "#/components/ui/button";
+import { STORE_UID } from "#/lib/constants";
 
 export function ProductAddToCart() {
-	const { uid } = useParams({ strict: false }) as { uid: string };
-	const { data } = useStoreProduct(uid);
+	const { handle } = useParams({ strict: false }) as { handle: string };
+	const { data } = useStoreProductByHandle(STORE_UID, handle);
 	const { addItem } = useCartContext();
-	const product = data?.product;
+	const product = data?.productByHandle;
 
 	if (!product) return null;
 

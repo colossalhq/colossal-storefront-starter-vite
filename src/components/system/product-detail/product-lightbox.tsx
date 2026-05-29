@@ -1,5 +1,6 @@
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
+import { GalleryImage } from "./gallery-image";
 
 interface ProductLightboxProps {
 	images: string[];
@@ -57,10 +58,12 @@ export function ProductLightbox({
 				{index + 1} / {images.length}
 			</div>
 
-			<img
+			<GalleryImage
 				src={images[index]}
 				alt={`${productName} - ${index + 1}`}
+				fallbackChar={productName.charAt(0)}
 				className="max-h-[85vh] max-w-[90vw] object-contain"
+				fallbackClassName="h-[60vh] w-[60vh]"
 				onClick={(e) => e.stopPropagation()}
 				onKeyDown={(e) => e.stopPropagation()}
 			/>
@@ -100,16 +103,18 @@ export function ProductLightbox({
 								e.stopPropagation();
 								setIndex(i);
 							}}
-							className={`h-14 w-14 flex-shrink-0 overflow-hidden transition-all ${
+							className={`h-14 w-14 shrink-0 overflow-hidden transition-all ${
 								i === index
 									? "ring-2 ring-white"
 									: "opacity-40 hover:opacity-80"
 							}`}
 						>
-							<img
+							<GalleryImage
 								src={src}
 								alt={`Thumbnail ${i + 1}`}
+								fallbackChar={productName.charAt(0)}
 								className="h-full w-full object-cover"
+								fallbackTextClassName="text-xl"
 							/>
 						</button>
 					))}

@@ -1,15 +1,16 @@
-import { useStoreProduct } from "@colossal-sh/storefront-sdk";
+import { useStoreProductByHandle } from "@colossal-sh/storefront-sdk";
 import { Link, useParams } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
+import { STORE_UID } from "#/lib/constants";
 import { ProductAddToCart } from "./product-add-to-cart";
 import { ProductGallery } from "./product-gallery";
 import { ProductInfo } from "./product-info";
 import { ProductPrice } from "./product-price";
 
 export function ProductDetails() {
-	const { uid } = useParams({ strict: false }) as { uid: string };
-	const { data, isLoading } = useStoreProduct(uid);
-	const product = data?.product;
+	const { handle } = useParams({ strict: false }) as { handle: string };
+	const { data, isLoading } = useStoreProductByHandle(STORE_UID, handle);
+	const product = data?.productByHandle;
 
 	if (isLoading) {
 		return <ProductDetailSkeleton />;

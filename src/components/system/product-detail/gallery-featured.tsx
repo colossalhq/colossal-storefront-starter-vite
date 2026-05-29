@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GalleryImage } from "./gallery-image";
 
 interface Props {
 	images: string[];
@@ -16,9 +17,10 @@ export function GalleryFeatured({ images, productName, onImageClick }: Props) {
 				onClick={() => onImageClick(activeIndex)}
 				className="group/img relative w-full overflow-hidden rounded-lg bg-muted"
 			>
-				<img
+				<GalleryImage
 					src={images[activeIndex]}
 					alt={`${productName} - ${activeIndex + 1}`}
+					fallbackChar={productName.charAt(0)}
 					className="aspect-square w-full object-cover transition-transform duration-500 group-hover/img:scale-[1.03]"
 				/>
 				<div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover/img:bg-black/10" />
@@ -37,10 +39,12 @@ export function GalleryFeatured({ images, productName, onImageClick }: Props) {
 									: "border-transparent opacity-50 hover:opacity-80"
 							}`}
 						>
-							<img
+							<GalleryImage
 								src={src}
 								alt={`Thumbnail ${i + 1}`}
+								fallbackChar={productName.charAt(0)}
 								className="h-full w-full object-cover"
+								fallbackTextClassName="text-xl"
 							/>
 						</button>
 					))}

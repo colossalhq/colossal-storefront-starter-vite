@@ -85,8 +85,8 @@ export function ProductCard({
 					{!showFallback ? (
 						<>
 							<Link
-								to="/product/$uid"
-								params={{ uid: product.uid }}
+								to="/product/$handle"
+								params={{ handle: product.handle }}
 								className="block h-full"
 							>
 								<div
@@ -182,8 +182,8 @@ export function ProductCard({
 						</>
 					) : (
 						<Link
-							to="/product/$uid"
-							params={{ uid: product.uid }}
+							to="/product/$handle"
+							params={{ handle: product.handle }}
 							className="flex h-full items-center justify-center bg-muted"
 						>
 							<span className="font-display text-7xl italic text-muted-foreground/20">
@@ -196,8 +196,8 @@ export function ProductCard({
 				{/* Content */}
 				<div className="flex flex-1 flex-col p-5 sm:p-6">
 					<Link
-						to="/product/$uid"
-						params={{ uid: product.uid }}
+						to="/product/$handle"
+						params={{ handle: product.handle }}
 						className="block"
 					>
 						<h3

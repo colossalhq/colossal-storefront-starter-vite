@@ -16,7 +16,7 @@ initStorefrontClient({
 	apiVersion: "2026-06",
 });
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 export function ClientShell({ children }: { children: React.ReactNode }) {
 	const [searchOpen, setSearchOpen] = useState(false);

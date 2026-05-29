@@ -1,10 +1,11 @@
-import { useStoreProduct } from "@colossal-sh/storefront-sdk";
+import { useStoreProductByHandle } from "@colossal-sh/storefront-sdk";
 import { useParams } from "@tanstack/react-router";
+import { STORE_UID } from "#/lib/constants";
 
 export function ProductInfo() {
-	const { uid } = useParams({ strict: false }) as { uid: string };
-	const { data } = useStoreProduct(uid);
-	const product = data?.product;
+	const { handle } = useParams({ strict: false }) as { handle: string };
+	const { data } = useStoreProductByHandle(STORE_UID, handle);
+	const product = data?.productByHandle;
 
 	if (!product) return null;
 

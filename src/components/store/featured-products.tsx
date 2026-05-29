@@ -35,8 +35,8 @@ export function FeaturedProducts({
 					{products.map((product) => (
 						<Link
 							key={product.uid}
-							to="/product/$uid"
-							params={{ uid: product.uid }}
+							to="/product/$handle"
+							params={{ handle: product.handle }}
 							className="group relative flex flex-col bg-background p-8 transition-colors hover:bg-secondary/50 sm:p-10"
 						>
 							<div className="aspect-[3/4] w-full overflow-hidden rounded-md bg-muted/30">

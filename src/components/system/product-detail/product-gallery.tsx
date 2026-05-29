@@ -1,5 +1,6 @@
-import { useStoreProduct } from "@colossal-sh/storefront-sdk";
+import { useStoreProductByHandle } from "@colossal-sh/storefront-sdk";
 import { useParams } from "@tanstack/react-router";
+import { STORE_UID } from "#/lib/constants";
 import { useState } from "react";
 import { GalleryFeatured } from "./gallery-featured";
 import { GalleryGrid } from "./gallery-grid";
@@ -13,11 +14,11 @@ export function ProductGallery({
 }: {
 	variant?: GalleryVariant;
 }) {
-	const { uid } = useParams({ strict: false }) as { uid: string };
-	const { data } = useStoreProduct(uid);
+	const { handle } = useParams({ strict: false }) as { handle: string };
+	const { data } = useStoreProductByHandle(STORE_UID, handle);
 	const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-	const product = data?.product;
+	const product = data?.productByHandle;
 	const productName = product?.name ?? "Product";
 
 	const images =

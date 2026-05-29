@@ -116,8 +116,8 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
 								{productResults.map((product) => (
 									<Link
 										key={product.uid}
-										to="/product/$uid"
-										params={{ uid: product.uid }}
+										to="/product/$handle"
+										params={{ handle: product.handle }}
 										onClick={onClose}
 										className="flex items-center gap-4 px-3 py-3 transition-colors hover:bg-muted"
 									>

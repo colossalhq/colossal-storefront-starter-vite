@@ -1,13 +1,14 @@
 import {
 	getFormattedProductPrice,
-	useStoreProduct,
+	useStoreProductByHandle,
 } from "@colossal-sh/storefront-sdk";
 import { useParams } from "@tanstack/react-router";
+import { STORE_UID } from "#/lib/constants";
 
 export function ProductPrice() {
-	const { uid } = useParams({ strict: false }) as { uid: string };
-	const { data } = useStoreProduct(uid);
-	const product = data?.product;
+	const { handle } = useParams({ strict: false }) as { handle: string };
+	const { data } = useStoreProductByHandle(STORE_UID, handle);
+	const product = data?.productByHandle;
 
 	if (!product) return null;
 
